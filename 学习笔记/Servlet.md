@@ -154,5 +154,3 @@
 Cookie不能存中文，用URLEncoder.encode()进行编码，用URLDecoder.decode()进行解码；Cookie的存储量有限。
 
 ## Session
-
-
