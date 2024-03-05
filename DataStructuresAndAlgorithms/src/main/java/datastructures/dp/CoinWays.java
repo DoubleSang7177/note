@@ -1,11 +1,11 @@
-package datastructures.dynamic;
+package datastructures.dp;
 
 public class CoinWays {
     public static int way1(int[] arr, int aim){
         return process(arr,0,aim);
     }
 
-    public static int process(int[] arr,int index,int res){
+    public static int process(int[] arr, int index, int res){
         if (index==arr.length){
             return res==0?1:0;
         }

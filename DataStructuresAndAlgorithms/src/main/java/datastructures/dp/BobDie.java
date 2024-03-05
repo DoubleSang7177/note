@@ -1,4 +1,4 @@
-package datastructures.dynamic;
+package datastructures.dp;
 
 /*
 * Bob游戏
