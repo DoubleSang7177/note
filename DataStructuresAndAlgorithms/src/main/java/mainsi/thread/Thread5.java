@@ -8,7 +8,6 @@ import java.util.concurrent.locks.ReentrantLock;
 * 利用线程池
 * */
 public class Thread5 implements Runnable{
-    public static ThreadLocal tl=new ThreadLocal();
     @Override
     public void run() {
         System.out.println("thread 5");
@@ -17,6 +16,6 @@ public class Thread5 implements Runnable{
     public static void main(String[] args) {
         ExecutorService executorService = Executors.newFixedThreadPool(10);
         executorService.execute(new Thread5());
-        tl.set("");
+        System.out.println(Runtime.getRuntime().availableProcessors());//逻辑处理器
     }
 }
