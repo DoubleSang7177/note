@@ -1,7 +1,8 @@
 package datastructures.Leetcode;
-public class LeetCode148 {
-
-
+/*
+* 有错去，需要修改！！
+* */
+public class XLeetCode148 {
     public static class ListNode {
         int val;
         ListNode next;
@@ -23,21 +24,26 @@ public class LeetCode148 {
         if (head == null || head.next == null) {
             return head;
         }
-        ListNode tail = head;//深拷贝？
-        int size = 0;
+        ListNode tail = head;//浅拷贝
         while (tail.next != null) {
             tail = tail.next;
-            size++;
         }
-        return process(head,tail, head, ++size);
+        return process(head,tail, head);
     }
 
-    public static ListNode process(ListNode leftNode, ListNode rightNode, ListNode head, int size) {
+    public static ListNode process(ListNode leftNode, ListNode rightNode, ListNode head) {
         if (leftNode == rightNode){
             return leftNode;
         }
-        ListNode mid = leftNode;
-        int subSize=0;
+//        ListNode mid = leftNode;
+        ListNode quick=leftNode;
+        ListNode slow=leftNode;
+        while (quick.next!=null && quick.next.next!=rightNode.next){//使用快慢指针定位中间节点
+            quick=quick.next.next;
+            slow=slow.next;
+        }
+//        int subSize=0;
+        /*
         if (size % 2 == 0) {
             for (int i = 1; i < size / 2; i++) {//偶数
                 mid = mid.next;
@@ -48,10 +54,11 @@ public class LeetCode148 {
                 mid = mid.next;
                 subSize++;
             }
-        }
-        ListNode left = process(leftNode, mid, head, ++subSize);
-        ListNode right = process(mid.next, rightNode, head, size - subSize);
-        return merge(left,right,head,mid);
+            System.out.println(mid.val +" vs "+ slow.val);
+        }*/
+        process(leftNode, slow, head);
+        process(slow.next, rightNode, head);
+        return merge(leftNode,rightNode,head,slow);
     }
 
     private static ListNode merge(ListNode left, ListNode right, ListNode head, ListNode mid) {
