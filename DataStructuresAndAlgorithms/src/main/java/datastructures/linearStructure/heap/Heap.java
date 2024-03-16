@@ -16,8 +16,10 @@ public class Heap {
         for (int i = 0; i < arr.length; i++) {//O(N)
             heapInsert(arr,i);//O(logN)
         }
+        //此时，最大值在0位置
         int heapSize=arr.length;
         swap(arr,0,--heapSize);
+        //heapSize-1位置已排好序，大小减一
         while (heapSize>0){//O(N)
             heapify(arr,0,heapSize);//O(logN)
             swap(arr,0,--heapSize);//O(1)
@@ -30,7 +32,7 @@ public class Heap {
      * */
     public static void heapInsert(int[] arr, int index){
         //(index-1)/2就是index位置节点的父节点位置
-        while (arr[index]>arr[(index-1)/2]){//当index为0时，判断条件是否满足时不会抛异常吗？arr[0]>arr[-1/2]??
+        while (arr[index]>arr[(index-1)/2]){//当index为0时，(index-1)/2==0!!!条件不成立，会跳出循环
             //先交换值
             swap(arr,index,(index-1)/2);
             //更新该数的位置
@@ -63,5 +65,29 @@ public class Heap {
         int tmp = arr[i];
         arr[i] = arr[j];
         arr[j] = tmp;
+    }
+
+    public static void main(String[] args) {
+        int[] arr={2,31,2,35,65,4,3,78};
+        for (int i = 0; i < arr.length; i++) {
+            heapInsert(arr,i);
+        }
+        for (int i : arr) {
+            System.out.println(i);
+        }
+        swap(arr,0,arr.length-1);
+        for (int i : arr) {
+            System.out.print(i+" ");
+        }
+        System.out.println();
+        int size=arr.length-1;
+        while (size>0){
+            heapify(arr,0,size);
+            swap(arr,0,--size);
+        }
+        for (int i : arr) {
+            System.out.print(i+" "); }
+
+
     }
 }
