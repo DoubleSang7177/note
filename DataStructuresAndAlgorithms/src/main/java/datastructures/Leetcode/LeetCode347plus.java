@@ -1,9 +1,10 @@
 package datastructures.Leetcode;
 
 import java.util.*;
+
 /*
-* 14ms
-* */
+ * 14ms
+ * */
 public class LeetCode347plus {
     public static int[] topKFrequent(int[] nums, int k) {
         HashMap<Integer, Integer> map = new HashMap<>();
@@ -37,7 +38,7 @@ public class LeetCode347plus {
     }
 
     public static void main(String[] args) {
-        int[] arr={1,4,3,2,2,2,3,3,1};
+        int[] arr = {1, 4, 3, 2, 2, 2, 3, 3, 1};
         for (int i : topKFrequent(arr, 3)) {
             System.out.println(i);
         }

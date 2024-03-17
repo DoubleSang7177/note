@@ -98,9 +98,10 @@ public class LeetCode347 {
 
 
     public static void main(String[] args) {
-        int[] arr={1,4,3,2,2,2,3,3,1};
+        int[] arr={1,4,3,2,2,2,3,3,1};//9
         for (int i : topKFrequent(arr, 6)) {
             System.out.println(i);
         }
+        System.out.println((int) (Math.random() * arr.length));
     }
 }
