@@ -1,5 +1,4 @@
-package datastructures;
-
+package datastructures.Leetcode;
 import datastructures.tree.TreeNode;
 /*
 * 给定一个二叉搜索树的根节点 root 和一个值key，删除二叉搜索树中的key对应的节点，
@@ -7,8 +6,10 @@ import datastructures.tree.TreeNode;
 * 一般来说，删除节点可分为两个步骤：
 * 首先找到需要删除的节点；
 * 如果找到了，删除它。
+* 时间复杂度：O(n)
+* 空间复杂度：O(n)
 * */
-public class X {
+public class LeetCode450 {
 
     /**
      * 删除以root为根节点的树上的key节点
@@ -50,41 +51,6 @@ public class X {
         root.right=deleteNode(root.right,rightMostSmall.val);//在右子树上删除key为rightMostSmall.val的节点
         return root;
     }
-
-    /**
-     * 返回任意子树的最大值节点和最小值节点
-     *
-     * @param cur 子树根节点
-     * @return 字数上的最大值节点和最小值节点
-     */
-    public static TreeNode[] process(TreeNode cur) {
-        if (cur == null) {
-            return null;
-        }
-        TreeNode[] left = process(cur.left);
-        TreeNode[] right = process(cur.right);
-        return new TreeNode[]{right != null ? right[0] : cur, left != null ? left[1] : cur};
-    }
-
-    /**
-     * 找到目标节点
-     *
-     * @param root 当前遍历节点
-     * @param key  目标值
-     * @return 查询结果
-     */
-    private static TreeNode find(TreeNode root, int key) {
-        if (root == null) {
-            return null;
-        }
-        if (root.val == key) {
-            return root;
-        }
-        TreeNode leftResult = find(root.left, key);
-        TreeNode rightResult = find(root.right, key);
-        return leftResult != null ? leftResult : rightResult;
-    }
-
     public static void main(String[] args) {
         TreeNode root = new TreeNode(5, new TreeNode(3, new TreeNode(2, null, null), new TreeNode(4, null, null)), new TreeNode(6, null, new TreeNode(7, null, null)));
         deleteNode(root, 3);
