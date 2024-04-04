@@ -173,7 +173,7 @@ public class BinaryTree {
             }
             max=Math.max(max,curLevelNodes);//最后要再比较一次，否则不会考虑最后一层的宽度
         }
-//        System.out.println(max);
+//        System.out.println(maxSum);
     }
     public static void main(String[] args) {
         Node n4 = new Node(4, null, null);

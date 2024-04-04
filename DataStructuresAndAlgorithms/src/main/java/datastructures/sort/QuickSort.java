@@ -75,7 +75,7 @@ public class QuickSort {
     private static int[] partition(int[] arr, int left, int right) {
         int l = left;
         int r = right - 1;
-        while (left <= r) {//快慢指针，由于left比l快，所以不用判断l是否小于r
+        while (left <= r) {//，由于left比l快，所以不用判断l是否小于r
             if (arr[left] < arr[right]) {
                 swap(arr, l++, left++);
             } else if (arr[left] > arr[right]) {

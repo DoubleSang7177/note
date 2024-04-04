@@ -65,26 +65,26 @@ public class DoublyLinkedListSentinelTest {
 
     @Test
     public void easy(){
-        /*int max=0;
+        /*int maxSum=0;
         int[] prices={1,4,1,4,3,1};
         for(int i=prices.length-1;i>=0;i--){
             for(int j=i-1;j>=0;j--){
-                max=prices[i]>prices[j]&&prices[i]-prices[j]>max?
-                        prices[i]-prices[j]:max;
+                maxSum=prices[i]>prices[j]&&prices[i]-prices[j]>maxSum?
+                        prices[i]-prices[j]:maxSum;
             }
         }
-        System.out.println(max);*/
+        System.out.println(maxSum);*/
 
         /*int preValue=10;
-        int max=0;
+        int maxSum=0;
         for (int i = 1; i < prices.length; i++) {
-            if(prices[i]>prices[i-1]&&prices[i]>=max){
-                max=prices[i];
+            if(prices[i]>prices[i-1]&&prices[i]>=maxSum){
+                maxSum=prices[i];
             }else if(prices[i]<=prices[i-1]&&prices[i]<=preValue){
                 preValue=prices[i];
             }
         }
-        System.out.println(max-preValue);*/
+        System.out.println(maxSum-preValue);*/
 
         int[] prices={4,2,4,3,2,4,6};
         int max=0;
@@ -93,7 +93,7 @@ public class DoublyLinkedListSentinelTest {
             //preValue = Math.preValue(prices[j], preValue);
             for(int j = i-1; j >=0; j--) {
                 max = Math.max((prices[i] - prices[j]), max);}
-            //max= Math.max(prices[i] - preValue, max);
+            //maxSum= Math.maxSum(prices[i] - preValue, maxSum);
         }
         System.out.println(max);
 
